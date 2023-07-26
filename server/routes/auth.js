@@ -14,7 +14,8 @@ router.post("/signup", async (req, res) => {
       return res.status(409).json({ message: "Email already resgistered" });
     }
 
-    const hashedPassword = await bcrypt.hash(passworrd, 12);
+    const salt = await bcrypt.genSalt();
+    const hashedPassword = await bcrypt.hash(passworrd, salt);
 
     const newUser = new User({
       username,
@@ -22,9 +23,8 @@ router.post("/signup", async (req, res) => {
       password: hashedPassword,
     });
 
-    await newUser.save();
-
-    res.status(201).json({ message: "User registered successfully" });
+    const savedUser = await newUser.save();
+    res.status(201).json(savedUser);
   } catch (error) {
     res.status(500).json({ message: "An error occured", error: error.message });
   }
