@@ -20,9 +20,11 @@ function Signup() {
     e.preventDefault();
 
     try {
-      const url = "http://localhost:3001/auth/signup";
-      const { data: res } = await axios.post(url, data);
-      console.log(res.message);
+      const response = await axios.post(
+        "http://localhost:3001/auth/signup",
+        data
+      );
+      console.log(response.message);
     } catch (error) {
       console.log(error);
     }
