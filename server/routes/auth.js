@@ -1,12 +1,10 @@
-const express = require("express");
-const router = express.Router();
-const bcrypt = require("bcryptjs");
+import bcrypt from "bcryptjs";
+import User from "../models/User.js";
 // const jwt = require("jsonwebtoken");
-const User = require("../models/User");
 
 // SIGN UP
-router.post("/signup", async (req, res) => {
-  const { username, email, passworrd } = req.body;
+export const signup = async (req, res) => {
+  const { username, email, password } = req.body;
 
   try {
     const existingUser = await User.findOne({ email });
@@ -15,7 +13,7 @@ router.post("/signup", async (req, res) => {
     }
 
     const salt = await bcrypt.genSalt();
-    const hashedPassword = await bcrypt.hash(passworrd, salt);
+    const hashedPassword = await bcrypt.hash(password, salt);
 
     const newUser = new User({
       username,
@@ -24,14 +22,14 @@ router.post("/signup", async (req, res) => {
     });
 
     const savedUser = await newUser.save();
-    res.status(201).json(savedUser);
+    res.status(201).json({ message: "User created successfully" });
   } catch (error) {
     res.status(500).json({ message: "An error occured", error: error.message });
   }
-});
+};
 
 // LOGIN
-router.post("/login", async (req, res) => {
+export const login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -49,6 +47,4 @@ router.post("/login", async (req, res) => {
       .status(500)
       .json({ message: "An error occurred", error: error.message });
   }
-});
-
-module.exports = router;
+};

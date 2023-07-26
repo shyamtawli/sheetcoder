@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function Signup() {
-  const [formData, setFormData] = useState({
+  const [data, setData] = useState({
     username: "",
     email: "",
     password: "",
@@ -10,7 +10,7 @@ function Signup() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevFormData) => ({
+    setData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
     }));
@@ -20,11 +20,9 @@ function Signup() {
     e.preventDefault();
 
     try {
-      const respone = await fetch("http://localhost:3001/api/auth/signup", {
-        method: "POST",
-        body: formData,
-      });
-      console.log(respone);
+      const url = "http://localhost:3001/auth/signup";
+      const { data: res } = await axios.post(url, data);
+      console.log(res.message);
     } catch (error) {
       console.log(error);
     }
@@ -38,21 +36,21 @@ function Signup() {
           type="text"
           name="username"
           placeholder="Username"
-          value={formData.username}
+          value={data.username}
           onChange={handleChange}
         />
         <input
           type="email"
           name="email"
           placeholder="Email"
-          value={formData.email}
+          value={data.email}
           onChange={handleChange}
         />
         <input
           type="password"
           name="password"
           placeholder="Password"
-          value={formData.password}
+          value={data.password}
           onChange={handleChange}
         />
         <button type="submit">Sign Up</button>
