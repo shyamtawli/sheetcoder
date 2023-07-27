@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [data, setData] = useState({
@@ -7,6 +8,7 @@ function Signup() {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,6 +27,7 @@ function Signup() {
         data
       );
       console.log(response.message);
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }

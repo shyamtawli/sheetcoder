@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [data, setData] = useState({
@@ -23,6 +24,9 @@ function Login() {
         "http://localhost:3001/auth/login",
         data
       );
+
+      localStorage.setItem("token", response.data);
+      window.location = "/";
       console.log(response.message);
     } catch (error) {
       console.log(error);
