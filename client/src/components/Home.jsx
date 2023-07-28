@@ -1,14 +1,12 @@
 import React from "react";
+import Navbar from "./Navbar";
 
 function Home() {
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.reload();
-  };
   return (
-    <div>
-      <button onClick={handleLogout}>LogOut</button>
-    </div>
+    <>
+      <Navbar />
+      <h2>Main Container for problems table</h2>;
+    </>
   );
 }
 
