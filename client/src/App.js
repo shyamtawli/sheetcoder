@@ -16,7 +16,6 @@ function App() {
           </div>
         </div>
       )}
-
       <div className="main">
         <Routes>
           {user && <Route exact path="/" element={<Home />} />}
