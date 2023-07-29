@@ -1,19 +1,20 @@
 import React from "react";
+import "./Navbar.css";
 
-function Navbar() {
+const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     window.location.reload();
   };
   return (
-    <>
+    <nav>
       <div className="navbar-container">
         <button className="logout-btn" onClick={handleLogout}>
-          LogOut
+          LOGOUT
         </button>
       </div>
-    </>
+    </nav>
   );
-}
+};
 
 export default Navbar;

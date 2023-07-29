@@ -1,28 +1,3 @@
-.navbar-container {
-  height: 50px;
-  background-color: gray;
-}
-
-.navbar {
-  display: flex;
-  gap: 20px;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: white;
-  background-color: black;
-  border-radius: 5px;
-  padding: 2px 5px;
-}
-
-.logout-btn {
-  background-color: black;
-  color: white;
-  border-radius: 5px;
-  padding: 2px 5px;
-}
-
 .main {
   background-color: #eceff1;
   height: 100vh;
