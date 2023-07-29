@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { DiCodeBadge } from "react-icons/di";
-import { useNavigate } from "react-router-dom";
+import "./login.css";
 
-function Login() {
+const Login = () => {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -43,7 +43,6 @@ function Login() {
         </div>
         <form className="form-container" onSubmit={handleSubmit}>
           <input
-            className="input"
             type="email"
             name="email"
             value={data.email}
@@ -51,7 +50,6 @@ function Login() {
             onChange={handleChange}
           />
           <input
-            className="input"
             type="password"
             name="password"
             value={data.password}
@@ -62,13 +60,13 @@ function Login() {
             Log In
           </button>
         </form>
-        <div className="signup-container">
-          <a href="">Forgot Password?</a>
+        <div className="forgot-container">
+          <a href="/">Forgot Password?</a>
           <a href="/signup">Sign Up</a>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Login;
