@@ -1,0 +1,49 @@
+.main-container {
+  position: relative;
+  margin: 25px auto;
+  padding: 0 1.5rem;
+}
+
+.problem-table {
+  margin: 0 auto;
+  font-size: 1rem;
+  color: #6b7280;
+  width: 75%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.problem-table thead {
+  font-size: 1rem;
+  color: #3c3c4399;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table-heading {
+  padding: 0.75rem 0.25rem;
+  width: 0;
+  font-weight: 500;
+}
+
+tbody {
+  color: black;
+}
+
+.row-odd {
+  background-color: rgb(247, 248, 250);
+}
+
+th {
+  padding: 1rem 1rem;
+}
+
+td a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+td a:hover {
+  color: blue;
+}
