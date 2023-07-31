@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Navbar from "../Topbar/Navbar";
-import problems from "../../problem.js";
+import mocProblems from "../../problem.js";
 import "./Home.css";
 
 function Home() {
+  const [problems, setProblems] = useState([]);
+  useEffect(() => {
+    async function fetchProbelems() {
+      try {
+        const response = await axios.get("http://localhost:3001/problemsTable");
+        setProblems(response.data);
+        // console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchProbelems();
+  }, []);
+  console.log(problems);
+
   return (
     <>
       <Navbar />
@@ -19,7 +35,7 @@ function Home() {
             </tr>
           </thead>
           <tbody>
-            {problems.map((doc, idx) => {
+            {mocProblems.map((doc, idx) => {
               const difficulyColor =
                 doc.difficult === "Easy"
                   ? "green"

@@ -1,4 +1,4 @@
-const problems = [
+const mocProblems = [
   {
     id: "two-sum",
     title: "Two Sum",
@@ -15,4 +15,4 @@ const problems = [
   },
 ];
 
-export default problems;
+export default mocProblems;

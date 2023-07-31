@@ -27,7 +27,7 @@ const Login = () => {
       );
 
       localStorage.setItem("token", response.data);
-      window.location = "/";
+      window.location = "/home";
       console.log(response.message);
     } catch (error) {
       console.log(error);
