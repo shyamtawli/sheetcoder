@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const TableData = ({ problems }) => {
-  // console.log(problems);
   return (
     <div className="main-container">
       <table className="problem-table">
@@ -22,7 +21,7 @@ const TableData = ({ problems }) => {
                 ? "yellow"
                 : "red";
             return (
-              <tr className={`${idx % 2 == 1 ? "row-odd" : ""}`} key={doc.id}>
+              <tr className={`${idx % 2 === 1 ? "row-odd" : ""}`} key={doc.id}>
                 <th>{doc.order}</th>
                 <td className="title">
                   <Link to={`/problems/${doc.id}`}>{doc.title}</Link>

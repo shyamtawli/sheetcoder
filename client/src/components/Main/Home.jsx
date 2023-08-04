@@ -7,6 +7,7 @@ import TableData from "./TableData";
 
 function Home() {
   const [problems, setProblems] = useState([]);
+
   useEffect(() => {
     async function fetchProbelems() {
       try {
@@ -18,8 +19,6 @@ function Home() {
     }
     fetchProbelems();
   }, []);
-
-  console.log(problems);
 
   return (
     <>
