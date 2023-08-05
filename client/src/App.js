@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Signup from "./components/Signup/Signup";
 import Login from "./components/Login/Login";
 import Home from "./components/Main/Home";
+import Problem from "./components/Problem/Problem";
 
 function App() {
   const user = localStorage.getItem("token");
@@ -11,9 +12,10 @@ function App() {
       <div className="main">
         <Routes>
           {user && <Route exact path="/home" element={<Home />} />}
+          {user && <Route exact path="/problems/:id" element={<Problem />} />}
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/login" element={<Login />} />
-          <Route path="/" exact element={<Navigate replace to="/login" />} />
+          <Route exact path="/" element={<Navigate replace to="/login" />} />
         </Routes>
       </div>
     </div>
