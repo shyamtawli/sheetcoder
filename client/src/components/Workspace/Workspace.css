@@ -1,7 +1,66 @@
 .problem-desc-container {
   height: 100vh;
   /* border: 1px solid gray; */
-  border-radius: 10px;
+  border-radius: 5px;
   background: white;
   border: 2px solid white;
+  padding: 0 1rem;
+}
+
+.problem-desc-heading {
+  font-size: 0.75rem;
+  font-weight: 600;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.desc-title {
+  padding: 1rem 0;
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.desc-difficult {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.companies-container {
+  padding: 1rem 0;
+}
+
+.problem-companies {
+  padding: 0.25rem 0.35rem;
+  font-size: 0.75rem;
+  display: inline;
+  font-weight: 300;
+  border-radius: 1rem;
+  background: #e2e8f0;
+}
+
+.problem-description {
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.example-no,
+.constraints {
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.example-desc {
+  background: #000a2008;
+  padding: 0.75rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  margin: 1rem 0;
+  color: rgb(38, 38, 38);
+}
+
+.constraints-container {
+  margin-top: 2rem;
+  font-size: 0.875rem;
 }
