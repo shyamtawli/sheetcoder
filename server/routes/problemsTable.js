@@ -5,7 +5,7 @@ export const problemsTable = async (req, res) => {
     const problems = await Problems.find().select(
       "id title difficult category order"
     );
-    res.status(200).send({ data: problems });
+    res.status(200).json({ data: problems });
   } catch (error) {
     res
       .status(500)

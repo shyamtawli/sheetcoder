@@ -24,7 +24,7 @@ const TableData = ({ problems }) => {
               <tr className={`${idx % 2 === 1 ? "row-odd" : ""}`} key={doc.id}>
                 <th>{doc.order}</th>
                 <td className="title">
-                  <Link to={`/problems/${doc.id}`}>{doc.title}</Link>
+                  <Link to={`/problem/${doc.id}`}>{doc.title}</Link>
                 </td>
                 <td style={{ color: difficulyColor }}>{doc.difficult}</td>
                 <td>{doc.category}</td>

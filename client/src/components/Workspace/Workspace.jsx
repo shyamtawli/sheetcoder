@@ -6,7 +6,7 @@ function Workspace() {
   return (
     <Split className="split">
       <ProblemDescription />
-      <div style={{ borderRadius: "10px" }}>Code Editor</div>
+      <div>Code Editor</div>
     </Split>
   );
 }

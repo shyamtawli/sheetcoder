@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import { signup, login } from "./routes/auth.js";
 import { problemsTable } from "./routes/problemsTable.js";
+import { problemDetails } from "./routes/problemDetails.js";
 
 dotenv.config();
 const app = express();
@@ -33,3 +34,4 @@ mongoose
 app.use("/auth/signup", signup);
 app.use("/auth/login", login);
 app.use("/problemsTable", problemsTable);
+app.use("/problem/:id", problemDetails);

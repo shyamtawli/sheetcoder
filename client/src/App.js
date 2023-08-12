@@ -12,7 +12,7 @@ function App() {
       <div className="main">
         <Routes>
           {user && <Route exact path="/home" element={<Home />} />}
-          {user && <Route exact path="/problems/:id" element={<Problem />} />}
+          {user && <Route exact path="/problem/:id" element={<Problem />} />}
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/" element={<Navigate replace to="/login" />} />
