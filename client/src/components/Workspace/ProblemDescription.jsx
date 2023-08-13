@@ -1,34 +1,8 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import "./Workspace.css";
 // import ProblemDetails from "../../problem.js";
 
-function ProblemDescription() {
-  const urlPathname = window.location.pathname;
-  const segments = urlPathname.split("/");
-  const problemId = segments[segments.length - 1];
-
-  const [details, setDetails] = useState({});
-
-  useEffect(() => {
-    async function fetchDetails() {
-      try {
-        const response = await axios.get(
-          `http://localhost:3001/problem/${problemId}`
-        );
-        setDetails(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchDetails();
-  }, [problemId]);
-  console.log(details);
-
-  if (details) {
-    return;
-  }
-
+function ProblemDescription({ details }) {
   return (
     <div className="problem-desc-container">
       <div className="problem-desc-heading">Description</div>
@@ -43,7 +17,7 @@ function ProblemDescription() {
       </div>
       <div className="problem-description">{details.description}</div>
       <div className="problem-examples">
-        {details.examples.map((example, index) => {
+        {details.examples?.map((example, index) => {
           return (
             <div className="example-container" key={index}>
               <div className="example-no">Example {index + 1}:</div>
@@ -59,7 +33,7 @@ function ProblemDescription() {
       </div>
       <div className="constraints-container">
         <div className="constraints">Constraints:</div>
-        {details.constraints.map((constraint, index) => {
+        {details.constraints?.map((constraint, index) => {
           return <li key={index}>{constraint}</li>;
         })}
       </div>
