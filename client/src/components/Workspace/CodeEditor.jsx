@@ -7,15 +7,22 @@ import TestCases from "./TestCases";
 const CodeEditor = () => {
   return (
     <div className="code-editor-container">
-      <div className="code-editor-heading">JavaScript</div>
-      <Editor
-        height="85vh"
-        width={`100%`}
-        language={"javascript"}
-        // value={value}
-        defaultValue="//Write Your Code Here..."
-        // onChange={handleEditorChange}
-      />
+      <Split direction="vertical">
+        <div className="editor-container">
+          <div className="code-editor-heading">JavaScript</div>
+          <Editor
+            height={`70vh`}
+            width={"100%"}
+            language={"javascript"}
+            // value={value}
+            defaultValue="//Write Your Code Here..."
+            // onChange={handleEditorChange}
+          />
+        </div>
+        <div className="testcase-container">
+          <TestCases />
+        </div>
+      </Split>
     </div>
   );
 };

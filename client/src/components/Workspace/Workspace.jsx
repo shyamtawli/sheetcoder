@@ -28,7 +28,7 @@ function Workspace() {
   console.log(details);
 
   return (
-    <Split className="split">
+    <Split className="split" minSize={0}>
       <ProblemDescription details={details} />
       <CodeEditor />
     </Split>

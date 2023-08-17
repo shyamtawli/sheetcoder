@@ -67,15 +67,6 @@
 }
 
 /* CODE EDITOR */
-.code-editor-container {
-  height: 100vh;
-  /* border: 1px solid gray; */
-  border-radius: 5px;
-  background: white;
-  border: 2px solid white;
-  padding: 0 1rem;
-}
-
 .code-editor-heading {
   font-size: 0.75rem;
   font-weight: 600;
@@ -83,4 +74,16 @@
   display: flex;
   align-items: center;
   border-bottom: 1px solid #e2e8f0;
+}
+
+.code-editor-split {
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-container,
+.testcase-container {
+  background: white;
+  border-radius: 5px;
+  padding: 0 1rem;
 }
