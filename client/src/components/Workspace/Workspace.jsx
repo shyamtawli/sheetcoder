@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Split from "react-split";
 import ProblemDescription from "./ProblemDescription";
+import CodeEditor from "./CodeEditor";
 
 function Workspace() {
   const urlPathname = window.location.pathname;
@@ -29,7 +30,7 @@ function Workspace() {
   return (
     <Split className="split">
       <ProblemDescription details={details} />
-      <div>Code Editor</div>
+      <CodeEditor />
     </Split>
   );
 }

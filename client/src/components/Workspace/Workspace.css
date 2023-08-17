@@ -1,3 +1,4 @@
+/* PROBLME DESCRIPTION */
 .problem-desc-container {
   height: 100vh;
   /* border: 1px solid gray; */
@@ -63,4 +64,23 @@
 .constraints-container {
   margin-top: 2rem;
   font-size: 0.875rem;
+}
+
+/* CODE EDITOR */
+.code-editor-container {
+  height: 100vh;
+  /* border: 1px solid gray; */
+  border-radius: 5px;
+  background: white;
+  border: 2px solid white;
+  padding: 0 1rem;
+}
+
+.code-editor-heading {
+  font-size: 0.75rem;
+  font-weight: 600;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
 }
