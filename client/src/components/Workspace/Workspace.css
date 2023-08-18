@@ -67,6 +67,7 @@
 }
 
 /* CODE EDITOR */
+
 .code-editor-heading {
   font-size: 0.75rem;
   font-weight: 600;
@@ -76,13 +77,9 @@
   border-bottom: 1px solid #e2e8f0;
 }
 
-.code-editor-split {
-  display: flex;
-  flex-direction: column;
-}
-
 .editor-container,
 .testcase-container {
+  height: 100%;
   background: white;
   border-radius: 5px;
   padding: 0 1rem;

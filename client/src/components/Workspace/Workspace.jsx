@@ -4,6 +4,7 @@ import axios from "axios";
 import Split from "react-split";
 import ProblemDescription from "./ProblemDescription";
 import CodeEditor from "./CodeEditor";
+import TestCases from "./TestCases";
 
 function Workspace() {
   const urlPathname = window.location.pathname;
@@ -30,7 +31,10 @@ function Workspace() {
   return (
     <Split className="split" minSize={0}>
       <ProblemDescription details={details} />
-      <CodeEditor />
+      <Split direction="vertical">
+        <CodeEditor />
+        <TestCases />
+      </Split>
     </Split>
   );
 }
