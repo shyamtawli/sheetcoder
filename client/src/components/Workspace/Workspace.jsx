@@ -26,7 +26,7 @@ function Workspace() {
     }
     fetchDetails();
   }, [problemId]);
-  console.log(details);
+  // console.log(details);
 
   return (
     <Split className="split" minSize={0}>
