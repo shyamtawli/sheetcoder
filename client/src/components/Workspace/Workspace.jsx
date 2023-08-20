@@ -31,7 +31,7 @@ function Workspace() {
   return (
     <Split className="split" minSize={0}>
       <ProblemDescription details={details} />
-      <Split direction="vertical">
+      <Split className="split-vertical" direction="vertical">
         <CodeEditor />
         <TestCases />
       </Split>

@@ -14,7 +14,8 @@ const CodeEditor = () => {
     <div className="editor-container">
       <div className="code-editor-heading">JavaScript</div>
       <Editor
-        height={"50%"}
+        // height={"50%"}
+
         width={`100%`}
         language={"javascript"}
         value={value}

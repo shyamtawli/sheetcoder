@@ -1,11 +1,12 @@
 /* PROBLME DESCRIPTION */
 .problem-desc-container {
-  height: 100vh;
+  height: 90vh;
   /* border: 1px solid gray; */
   border-radius: 5px;
   background: white;
   border: 2px solid white;
   padding: 0 1rem;
+  overflow-y: scroll;
 }
 
 .problem-desc-heading {
@@ -68,7 +69,8 @@
 
 /* CODE EDITOR */
 
-.code-editor-heading {
+.code-editor-heading,
+.test-cases-heading {
   font-size: 0.75rem;
   font-weight: 600;
   height: 2rem;
@@ -83,4 +85,56 @@
   background: white;
   border-radius: 5px;
   padding: 0 1rem;
+  overflow: hidden;
+}
+
+.testcase-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.test-case-number {
+  background-color: #000a200d;
+  padding: 0.2rem 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.compile-btn-container {
+  padding: 0.25rem;
+  border-top: 1px solid #e2e8f0;
+  align-items: center;
+}
+
+.compile-btn-container button {
+  background-color: rgb(45 181 93);
+  border: none;
+  padding: 0 0.5rem;
+  font-weight: 700;
+  border-radius: 5px;
+  height: 1.75rem;
+  cursor: pointer;
+  color: white;
+}
+
+.compile-btn-container button:hover {
+  background-color: rgb(14, 114, 49);
+}
+
+.testcases-input-container p,
+.testcases-output-container p {
+  font-size: 0.75rem;
+}
+
+.testcase-input,
+.testcase-output {
+  background: #000a2008;
+  padding: 0.75rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  color: rgb(38, 38, 38);
 }

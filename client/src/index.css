@@ -26,6 +26,10 @@ p {
   flex-direction: row;
 }
 
+.split-vertical {
+  height: 90vh;
+}
+
 .gutter {
   background-color: #e2e8f0;
   background-repeat: no-repeat;
