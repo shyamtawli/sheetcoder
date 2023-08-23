@@ -1,6 +1,6 @@
 import React from "react";
 
-const TestCases = () => {
+const TestCases = ({ handleCompile }) => {
   return (
     <div className="testcase-container">
       <div className="test-cases">
@@ -16,7 +16,7 @@ const TestCases = () => {
         </div>
       </div>
       <div className="compile-btn-container">
-        <button>Compile and Excute</button>
+        <button onClick={handleCompile}>Compile and Execute</button>
       </div>
     </div>
   );
