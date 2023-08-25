@@ -13,6 +13,7 @@ function Workspace() {
 
   const [details, setDetails] = useState({});
   const [code, setCode] = useState("");
+  const testcases = details.testcases;
 
   useEffect(() => {
     async function fetchDetails() {
@@ -32,7 +33,7 @@ function Workspace() {
     setCode(data);
   };
 
-  const handleCompile = () => {
+  const handleCompile = async () => {
     const formData = {
       language_id: 63,
       source_code: btoa(code),
@@ -52,14 +53,13 @@ function Workspace() {
       data: formData,
     };
 
-    axios
-      .request(options)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    try {
+      const response = await axios.request(options);
+      const token = response.data.token;
+      console.log(token);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -67,7 +67,7 @@ function Workspace() {
       <ProblemDescription details={details} />
       <Split className="split-vertical" direction="vertical">
         <CodeEditor onChange={onChange} />
-        <TestCases handleCompile={handleCompile} />
+        <TestCases handleCompile={handleCompile} testcases={testcases} />
       </Split>
     </Split>
   );

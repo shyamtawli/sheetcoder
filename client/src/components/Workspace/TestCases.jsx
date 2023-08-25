@@ -1,19 +1,26 @@
 import React from "react";
 
-const TestCases = ({ handleCompile }) => {
+const TestCases = ({ handleCompile, testcases }) => {
+  console.log(testcases);
   return (
     <div className="testcase-container">
       <div className="test-cases">
         <div className="test-cases-heading">Testcases</div>
-        <div className="test-case-number">Case 1</div>
-        <div className="testcases-input-container">
-          <p>Input:</p>
-          <div className="testcase-input">[2,7,11,15]</div>
-        </div>
-        <div className="testcases-output-container">
-          <p>Output:</p>
-          <div className="testcase-output">9</div>
-        </div>
+        {testcases?.map((testcase, idx) => {
+          return (
+            <div key={idx}>
+              <div className="test-case-number">Case {idx + 1}</div>
+              <div className="testcases-input-container">
+                <p>Input:</p>
+                <div className="testcase-input">{testcase.input}</div>
+              </div>
+              <div className="testcases-output-container">
+                <p>Output:</p>
+                <div className="testcase-output">{testcase.output}</div>
+              </div>
+            </div>
+          );
+        })}
       </div>
       <div className="compile-btn-container">
         <button onClick={handleCompile}>Compile and Execute</button>
