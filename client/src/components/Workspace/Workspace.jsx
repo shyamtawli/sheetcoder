@@ -13,6 +13,8 @@ function Workspace() {
 
   const [details, setDetails] = useState({});
   const [code, setCode] = useState("");
+  const [processing, setProcessing] = useState(false);
+
   const testcases = details.testcases;
 
   useEffect(() => {
@@ -34,6 +36,7 @@ function Workspace() {
   };
 
   const handleCompile = async () => {
+    setProcessing(true);
     const formData = {
       language_id: 63,
       source_code: btoa(code),
@@ -57,9 +60,31 @@ function Workspace() {
       const response = await axios.request(options);
       const token = response.data.token;
       console.log(token);
+      checkStatus(token);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const checkStatus = async (token) => {
+    const options = {
+      method: "GET",
+      url: process.env.REACT_APP_RAPID_API_URL + "/" + token,
+      params: { base64_encoded: "true", fields: "*" },
+      headers: {
+        "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
+        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+      },
+    };
+
+    try {
+      const response = await axios.request(options);
+      const statusId = response.data;
+      console.log(statusId);
+    } catch (error) {
+      console.log(error);
+    }
+    setProcessing(false);
   };
 
   return (
@@ -67,7 +92,11 @@ function Workspace() {
       <ProblemDescription details={details} />
       <Split className="split-vertical" direction="vertical">
         <CodeEditor onChange={onChange} />
-        <TestCases handleCompile={handleCompile} testcases={testcases} />
+        <TestCases
+          handleCompile={handleCompile}
+          testcases={testcases}
+          processing={processing}
+        />
       </Split>
     </Split>
   );
