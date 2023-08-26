@@ -14,6 +14,7 @@ function Workspace() {
   const [details, setDetails] = useState({});
   const [code, setCode] = useState("");
   const [processing, setProcessing] = useState(false);
+  const [output, setOuput] = useState("");
 
   const testcases = details.testcases;
 
@@ -40,7 +41,7 @@ function Workspace() {
     const formData = {
       language_id: 63,
       source_code: btoa(code),
-      stdin: btoa("9"),
+      stdin: btoa(details.testcases[0].input),
     };
 
     const options = {
@@ -59,7 +60,6 @@ function Workspace() {
     try {
       const response = await axios.request(options);
       const token = response.data.token;
-      console.log(token);
       checkStatus(token);
     } catch (error) {
       console.log(error);
@@ -79,12 +79,22 @@ function Workspace() {
 
     try {
       const response = await axios.request(options);
-      const statusId = response.data;
+      const statusId = response.data.status_id;
       console.log(statusId);
+      if (statusId === 1 || statusId === 2) {
+        setTimeout(() => {
+          checkStatus(token);
+        }, 2000);
+        return;
+      } else {
+        setProcessing(false);
+        setOuput(response.data.stdout);
+        return;
+      }
     } catch (error) {
+      setProcessing(false);
       console.log(error);
     }
-    setProcessing(false);
   };
 
   return (
