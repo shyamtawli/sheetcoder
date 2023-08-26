@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { DiCodeBadge } from "react-icons/di";
 import "./login.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [data, setData] = useState({
@@ -26,16 +28,32 @@ const Login = () => {
         data
       );
 
-      localStorage.setItem("token", response.data);
+      localStorage.setItem("token", response.data.data);
       window.location = "/home";
-      console.log(response.message);
     } catch (error) {
+      notify();
       console.log(error);
     }
   };
 
+  const notify = () => {
+    toast.error("Invalid Email or Password");
+  };
+
   return (
     <div className="login-container">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <div className="login-box">
         <div className="logo-title">
           <DiCodeBadge size="50px" />
