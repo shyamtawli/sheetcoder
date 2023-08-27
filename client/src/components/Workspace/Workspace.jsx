@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Split from "react-split";
+import { toast } from "react-toastify";
 import ProblemDescription from "./ProblemDescription";
 import CodeEditor from "./CodeEditor";
 import TestCases from "./TestCases";
@@ -14,7 +15,6 @@ function Workspace() {
   const [details, setDetails] = useState({});
   const [code, setCode] = useState("");
   const [processing, setProcessing] = useState(false);
-  const [output, setOuput] = useState("");
 
   const testcases = details.testcases;
 
@@ -41,7 +41,7 @@ function Workspace() {
     const formData = {
       language_id: 63,
       source_code: btoa(code),
-      stdin: btoa(details.testcases[0].input),
+      stdin: btoa(details?.testcases[0].input),
     };
 
     const options = {
@@ -79,7 +79,7 @@ function Workspace() {
 
     try {
       const response = await axios.request(options);
-      const statusId = response.data.status_id;
+      const statusId = await response.data.status_id;
       console.log(statusId);
       if (statusId === 1 || statusId === 2) {
         setTimeout(() => {
@@ -87,8 +87,19 @@ function Workspace() {
         }, 2000);
         return;
       } else {
+        const output = atob(response.data.stdout);
+        console.log(output.length);
+        const reqOutput = details.testcases[0].output;
+        console.log(reqOutput.length);
+
+        console.log(output == reqOutput);
+
+        if (output == reqOutput) {
+          toast.success("Congrats! TestCase Passesd");
+        } else {
+          toast.error("Oops! Output Didn't Matched");
+        }
         setProcessing(false);
-        setOuput(response.data.stdout);
         return;
       }
     } catch (error) {
