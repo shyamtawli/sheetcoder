@@ -17,7 +17,9 @@ const CodeEditor = ({ onChange }) => {
         width={`100%`}
         language={"javascript"}
         value={value}
-        defaultValue="// Write Your Code Here..."
+        defaultValue="// Write Your Code Here...
+        // You have to write a code with function and calling it with required parameters...
+        // Work on process for dynamic experience."
         onChange={handleEditorChange}
       />
     </div>

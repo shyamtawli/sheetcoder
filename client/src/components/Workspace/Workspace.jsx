@@ -80,7 +80,6 @@ function Workspace() {
     try {
       const response = await axios.request(options);
       const statusId = await response.data.status_id;
-      console.log(statusId);
       if (statusId === 1 || statusId === 2) {
         setTimeout(() => {
           checkStatus(token);
@@ -88,13 +87,9 @@ function Workspace() {
         return;
       } else {
         const output = atob(response.data.stdout);
-        console.log(output.length);
         const reqOutput = details.testcases[0].output;
-        console.log(reqOutput.length);
 
-        console.log(output == reqOutput);
-
-        if (output == reqOutput) {
+        if (output.trim() == reqOutput.trim()) {
           toast.success("Congrats! TestCase Passesd");
         } else {
           toast.error("Oops! Output Didn't Matched");
