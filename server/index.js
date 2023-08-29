@@ -9,7 +9,13 @@ import { problemDetails } from "./routes/problemDetails.js";
 dotenv.config();
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://sheetcoder.vercel.app/"],
+    methods: ["POST", "GET"],
+    credentials: true,
+  })
+);
 
 const PORT = process.env.PORT || 6001;
 
