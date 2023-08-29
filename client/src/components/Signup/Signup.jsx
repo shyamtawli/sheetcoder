@@ -25,7 +25,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/auth/signup",
+        "https://sheetcoder-backend.vercel.app/auth/signup",
         data
       );
       console.log(response.message);

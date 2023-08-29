@@ -22,7 +22,7 @@ function Workspace() {
     async function fetchDetails() {
       try {
         const response = await axios.get(
-          `http://localhost:3001/problem/${problemId}`
+          `https://sheetcoder-backend.vercel.app/problem/${problemId}`
         );
         setDetails(response.data);
       } catch (error) {

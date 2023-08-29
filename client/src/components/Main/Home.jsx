@@ -14,7 +14,9 @@ function Home() {
   useEffect(() => {
     async function fetchProbelems() {
       try {
-        const response = await axios.get("http://localhost:3001/problemsTable");
+        const response = await axios.get(
+          "https://sheetcoder-backend.vercel.app/problemsTable"
+        );
         setProblems(response.data.data);
         toast.success("Logged in successfully");
       } catch (error) {
